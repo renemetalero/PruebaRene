@@ -61,7 +61,7 @@ describe('ProductFormComponent', () => {
   it('should call productService.create when sendData is called with valid form and no selected product', () => {
     const mockFormValue = { id: '1', name: 'Test', description: 'Test', logo: 'test.png', date_release: new Date().toISOString(), date_revision: new Date().toISOString() };
     component.form.setValue(mockFormValue);
-    productServiceSpy.create.and.returnValue(of({}));
+    productServiceSpy.create.and.returnValue(of());
     component.sendData();
     expect(productServiceSpy.create).toHaveBeenCalledWith(mockFormValue);
   });
@@ -70,7 +70,7 @@ describe('ProductFormComponent', () => {
     const mockFormValue = { id: '1', name: 'Test', description: 'Test', logo: 'test.png', date_release: new Date().toISOString(), date_revision: new Date().toISOString() };
     component.selectedProduct = { id: '1', name: 'Test', description: 'Test', logo: 'test.png', date_release: new Date().toISOString(), date_revision: new Date().toISOString() };
     component.form.setValue(mockFormValue);
-    productServiceSpy.edit.and.returnValue(of({}));
+    productServiceSpy.edit.and.returnValue(of());
     component.sendData();
     expect(productServiceSpy.edit).toHaveBeenCalledWith(mockFormValue);
   });

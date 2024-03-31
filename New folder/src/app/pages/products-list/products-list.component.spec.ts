@@ -45,7 +45,7 @@ describe('ProductsListComponent', () => {
   it('should delete product and update products list', () => {
     const mockProduct = { id: '1', name: 'Test Product', description: 'Test Description', logo: 'test.png', date_release: new Date().toISOString(), date_revision: new Date().toISOString() };
     component.products = [mockProduct];
-    productServiceSpy.delete.and.returnValue(of({}));
+    productServiceSpy.delete.and.returnValue(of());
     component.delete(mockProduct.id);
     expect(productServiceSpy.delete).toHaveBeenCalledWith(mockProduct.id);
     expect(component.products).toEqual([]);
